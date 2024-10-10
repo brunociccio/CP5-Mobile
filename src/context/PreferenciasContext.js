@@ -5,7 +5,7 @@ const PreferenciasContext = createContext();
 
 export const usarTema = () => useContext(PreferenciaTemaContext);
 
-export const Tema  = ({children}) => {
+export const TemaProvider  = ({children}) => {
     const [temaDark, setTemaDark] = useState(false); 
 
     const mudarTema = async () => {

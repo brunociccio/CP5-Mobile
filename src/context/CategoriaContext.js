@@ -1,38 +1,33 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const CategoriaContext = createContext();
+const ProdutosContext = createContext();
 
-export const useCategoria = () => useContext(CategoriaContext);
+export const useProdutos = () => useContext(ProdutosContext);
 
-export const CategoriaProvider = ({children}) => {
-    const [categoria, setCategoria] = useState([]);
+export const ProdutoProvider = ({children}) => {
+    const [produto, setProduto] = useState([]);
 
     useEffect(() => {
-        const loadCategoria = async() => {
-            const savedCategoria = await AsyncStorage.getItem('@categoria');
-            if(savedCategoria) setCategoria(JSON.parse(savedCategoria));
+        const loadProduto = async() => {
+            const savedProduto = await AsyncStorage.getItem('@produto');
+            if(savedProduto) setProduto(JSON.parse(savedProduto));
         }
-        loadCategoria();
+        loadProduto();
     }, []);
 
-    const addCategoria = async (categoria) => {
-        const newCategoria = {categoria};
-        const newCategorias = [...categoria, newCategoria];
+    const addProduto = async (produto) => {
+        const newProduto= {produto};
+        const newProdutos = [...produto, newProduto];
 
-        setCategoria(newCategorias);
+        setCategoria(newProdutos);
 
-        await AsyncStorage.setItem('@categoria', JSON.stringify(newProdutos));
+        await AsyncStorage.setItem('@produto', JSON.stringify(newProdutos));
     };
 
-    const addProduto = async (produto, categoria) => {
-        const categoria = categoria()
-        const newCategoria = {}
-    }
-
     return (
-        <CategoriaContext.Provider value={{categoria, addCategoria}}>
+        <ProdutoProvider.Provider value={{categoria, addCategoria}}>
             {children}
-        </CategoriaContext.Provider>
+        </ProdutoProvider.Provider>
     )
 }

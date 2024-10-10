@@ -5,8 +5,7 @@ const LoginScreen = ({ navigation }) => {
   return (
     <View>
       <LoginForm />
-      <Button title="Register" onPress={() => navigation.navigate("Register")} />
-      <Button title="Dashboard2" onPress={() => navigation.navigate("Dashboard2")} />
+      <Button title="Registre-se" onPress={() => navigation.navigate("Register")} />
     </View>
   )
 }
