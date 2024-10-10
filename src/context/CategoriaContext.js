@@ -16,12 +16,23 @@ export const CategoriaProvider = ({children}) => {
         loadCategoria();
     }, []);
 
-    const addCategoria = async (produto) => {
-        const newProduto = {produto};
-        const newProdutos = [...categoria, newProduto];
+    const addCategoria = async (categoria) => {
+        const newCategoria = {categoria};
+        const newCategorias = [...categoria, newCategoria];
 
-        setCategoria(newProdutos);
+        setCategoria(newCategorias);
 
         await AsyncStorage.setItem('@categoria', JSON.stringify(newProdutos));
+    };
+
+    const addProduto = async (produto, categoria) => {
+        const categoria = categoria()
+        const newCategoria = {}
     }
+
+    return (
+        <CategoriaContext.Provider value={{categoria, addCategoria}}>
+            {children}
+        </CategoriaContext.Provider>
+    )
 }

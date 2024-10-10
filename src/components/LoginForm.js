@@ -40,13 +40,13 @@ const LoginForm = () => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20
+    padding: 25
   },
   input: {
-    marginVertical: 10, borderWidth: 1, padding: 8, borderRadius: 4
+    marginVertical: 10, borderWidth: 1, padding: 10, borderRadius: 10
   },
   errorText: {
-    color: 'red', marginBottom: 10
+    color: 'red', marginBottom: 14
   }
 })
 
