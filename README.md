@@ -4,5 +4,5 @@
 
 ### Bruno Ciccio RM:99097
 ### Isabelle Corsi RM:97751
-### José Duarte RM:99488
+### Jose Duarte RM:99488
 ### Thalita Alencar RM:99292

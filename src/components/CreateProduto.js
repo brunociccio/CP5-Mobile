@@ -1,39 +1,29 @@
 const CreateProduto = () => {
-    const { addProduto } = useFinance();
-    const [description, setDescription] = useState('');
-    const [amount, setAmount] = useState('');
-    const [type, setType] = useState('income');
+    const { addProduto } = useProduto();
+    const [nome, setNome] = useState('');
   
     const handleSubmit = () => {
-      if (!description || !amount || isNaN(amount)) {
+      if (!name) {
         Alert.alert('Erro', 'Por favor, insira valores válidos.');
         return;
       }
-      addTransaction(description, amount, type);
-      setDescription('')
-      setAmount('');
+      addProduto(name);
+      setNome('')
       Alert.alert('Sucesso', 'Transação adicionada!');
     };
   
     return (
       <View>
         <TextInput
-          placeholder="Descrição"
-          value={description}
-          onChangeText={setDescription}
+          placeholder="Nome"
+          value={nome}
+          onChangeText={setNome}
           style={{ borderBottomWidth: 1, marginBottom: 10 }}
         />
-        <TextInput
-          placeholder="Valor"
-          value={amount}
-          keyboardType="numeric"
-          onChangeText={setAmount}
-          style={{ borderBottomWidth: 1, marginBottom: 10 }}
-        />
-        <Button title="Adicionar Receita" onPress={() => { setType('income'); handleSubmit(); }} />
-        <Button title="Adicionar Despesa" onPress={() => { setType('expense'); handleSubmit(); }} />
+        
+        <Button title="Adicionar Produto" onPress={() => {handleSubmit(); }} />
       </View>
     );
   };
   
-  export default FinanceForm;
+  export default CreateProduto;
